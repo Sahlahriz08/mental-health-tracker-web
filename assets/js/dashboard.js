@@ -53,3 +53,46 @@ window.addEventListener('click', function(event) {
     settingsDropdown.style.display = 'none';
   }
 });
+<<<<<<< Updated upstream
+=======
+
+document.querySelector('a[href="#logout"]').addEventListener('click', function () {
+  // Tambahkan logika logout, seperti redirect atau AJAX call
+  alert('Logout berhasil!');
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const profileIcon = document.getElementById("profileIcon");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const profile = document.querySelector(".profile");
+  const viewProfile = document.getElementById("viewProfile");
+
+  // Menampilkan dropdown menu saat klik avatar
+  profileIcon.addEventListener("click", function () {
+    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  // Menampilkan profil saat menu "Profile" diklik
+  viewProfile.addEventListener("click", function (event) {
+    event.preventDefault(); // Menghindari reload halaman
+    profile.classList.toggle("active"); // Toggle class 'active' pada elemen profile
+  });
+
+  // Menutup dropdown jika klik di luar
+  window.addEventListener("click", function (event) {
+    if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+});
+
+function previewImage(event) {
+  const reader = new FileReader();
+  reader.onload = function () {
+    const preview = document.getElementById("profilePreview");
+    preview.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+>>>>>>> Stashed changes
